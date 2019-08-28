@@ -17,7 +17,6 @@
 
     public static class GitLabJobRunner
     {
-        private const string GitlabVersion = "v4";
         private static HttpClient _httpClient;
 
         [CakeMethodAlias]
@@ -160,7 +159,7 @@
 
         private static async Task<Pipeline> CreateNewPipelineAsync(int projectId, string branch, string triggerToken)
         {
-            Uri uri = new Uri($"{_httpClient.BaseAddress}api/{GitlabVersion}/projects/{projectId}/trigger/pipeline");
+            Uri uri = new Uri($"{_httpClient.BaseAddress}/projects/{projectId}/trigger/pipeline");
             var form = new List<KeyValuePair<string, string>>
             {
                 new KeyValuePair<string, string>("ref", branch),
@@ -189,7 +188,7 @@
 
         private static async Task<Pipeline> GetPipelineAsync(int projectId, long pipelineId)
         {
-            Uri uri = new Uri($"{_httpClient.BaseAddress}api/{GitlabVersion}/projects/{projectId}/pipelines/{pipelineId}");
+            Uri uri = new Uri($"{_httpClient.BaseAddress}/projects/{projectId}/pipelines/{pipelineId}");
             HttpResponseMessage response = await _httpClient.GetAsync(uri);
 
             if (!response.IsSuccessStatusCode)
@@ -211,7 +210,7 @@
 
         private static async Task<IEnumerable<Job>> GetJobsForAPipelineAsync(int projectId, long pipelineId)
         {
-            var uri = new Uri($"{_httpClient.BaseAddress}api/{GitlabVersion}/projects/{projectId}/pipelines/{pipelineId}/jobs");
+            var uri = new Uri($"{_httpClient.BaseAddress}/projects/{projectId}/pipelines/{pipelineId}/jobs");
             var response = await _httpClient.GetAsync(uri);
             if (!response.IsSuccessStatusCode)
             {
@@ -226,7 +225,7 @@
 
         private static async Task PlayJobAsync(int projectId, int jobId)
         {
-            Uri uri = new Uri($"{_httpClient.BaseAddress}api/{GitlabVersion}/projects/{projectId}/jobs/{jobId}/play");
+            Uri uri = new Uri($"{_httpClient.BaseAddress}/projects/{projectId}/jobs/{jobId}/play");
             var response = await _httpClient.PostAsync(uri, new StringContent(string.Empty));
             if (!response.IsSuccessStatusCode)
             {
@@ -236,7 +235,7 @@
 
         private static async Task<Job> GetJobAsync(int projectId, long jobId)
         {
-            Uri uri = new Uri($"{_httpClient.BaseAddress}api/{GitlabVersion}/projects/{projectId}/jobs/{jobId}");
+            Uri uri = new Uri($"{_httpClient.BaseAddress}/projects/{projectId}/jobs/{jobId}");
             var response = await _httpClient.GetAsync(uri);
             if (!response.IsSuccessStatusCode)
             {
