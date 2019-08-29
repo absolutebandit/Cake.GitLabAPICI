@@ -171,7 +171,7 @@
 
             if (!response.IsSuccessStatusCode)
             {
-                throw new Exception($"Failed to create pipeline on branch '{branch}' using project id {projectId}");
+                throw new Exception($"Failed to create pipeline on branch '{branch}' using project id {projectId}.{Environment.NewLine} Response status code is '{response.StatusCode}' and reason is {response.ReasonPhrase}'");
             }
 
             var responseString = await response.Content.ReadAsStringAsync();
@@ -193,7 +193,7 @@
 
             if (!response.IsSuccessStatusCode)
             {
-                throw new Exception($"Failed to get pipeline with id {pipelineId} from project with id {projectId}");
+                throw new Exception($"Failed to get pipeline with id {pipelineId} from project with id {projectId}.{Environment.NewLine} Response status code is '{response.StatusCode}' and reason is {response.ReasonPhrase}'");
             }
 
             var responseString = await response.Content.ReadAsStringAsync();
@@ -214,7 +214,7 @@
             var response = await _httpClient.GetAsync(uri);
             if (!response.IsSuccessStatusCode)
             {
-                throw new Exception($"Failed to get jobs from pipeline with id {pipelineId} from project with id {projectId}");
+                throw new Exception($"Failed to get jobs from pipeline with id {pipelineId} from project with id {projectId}.{Environment.NewLine} Response status code is '{response.StatusCode}' and reason is {response.ReasonPhrase}'");
             }
 
             var responseString = await response.Content.ReadAsStringAsync();
@@ -229,7 +229,7 @@
             var response = await _httpClient.PostAsync(uri, new StringContent(string.Empty));
             if (!response.IsSuccessStatusCode)
             {
-                throw new Exception($"Failed to start job with id {jobId} on project with id {projectId}");
+                throw new Exception($"Failed to start job with id {jobId} on project with id {projectId}.{Environment.NewLine} Response status code is '{response.StatusCode}' and reason is {response.ReasonPhrase}'");
             }
         }
 
@@ -239,7 +239,7 @@
             var response = await _httpClient.GetAsync(uri);
             if (!response.IsSuccessStatusCode)
             {
-                throw new Exception($"Failed to get job with id {jobId} on project with id {projectId}");
+                throw new Exception($"Failed to get job with id {jobId} on project with id {projectId}.{Environment.NewLine} Response status code is '{response.StatusCode}' and reason is {response.ReasonPhrase}'");
             }
 
             var responseString = await response.Content.ReadAsStringAsync();
