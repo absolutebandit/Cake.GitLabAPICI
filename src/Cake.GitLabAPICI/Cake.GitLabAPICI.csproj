@@ -7,8 +7,8 @@
     <Description>A cake addin for running GitLab pipelines and jobs via the GitLab API</Description>
     <Authors>Jim Brown</Authors>
     <Company>Aptoware Ltd</Company>
-    <PackageProjectUrl>https://github.com/absolutebandit/Cake.GitLabAPICI/blob/master/src/Cake.GitLabAPICI/Cake.GitLabAPICI.csproj</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/absolutebandit/Cake.GitLabAPICI</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/absolutebandit/Cake.GitLabAPICI</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/absolutebandit/Cake.GitLabAPICI.git</RepositoryUrl>
     <PackageIconUrl>https://cdn.jsdelivr.net/gh/cake-contrib/graphics/png/cake-contrib-medium.png</PackageIconUrl>
     <Copyright>Copyright (c) 2019 Jim Brown</Copyright>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
