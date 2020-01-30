@@ -41,6 +41,7 @@
             catch (Exception e)
             {
                 context?.Log.Write(Verbosity.Normal, LogLevel.Error, e.ToString());
+                throw;
             }
 
             return pipeline?.Id ?? 0;
@@ -74,6 +75,7 @@
             catch (Exception e)
             {
                 context?.Log.Write(Verbosity.Normal, LogLevel.Error, e.ToString());
+                throw;
             }
         }
 
@@ -103,7 +105,7 @@
 
                     case "skipped":
                         context?.Log.Write(Verbosity.Normal, LogLevel.Information, "Pipeline was skipped");
-                        return false;
+                        break;
 
                     default:
                         continue;
@@ -139,7 +141,7 @@
 
                     case "skipped":
                         context?.Log.Write(Verbosity.Normal, LogLevel.Information, "Job was skipped");
-                        return false;
+                        break;
 
                     default:
                         continue;
