@@ -104,6 +104,7 @@
                         return false;
 
                     case "skipped":
+                        pipelineIsRunning = false;
                         context?.Log.Write(Verbosity.Normal, LogLevel.Information, "Pipeline was skipped");
                         break;
 
@@ -140,6 +141,7 @@
                         return false;
 
                     case "skipped":
+                        jobIsRunning = false;
                         context?.Log.Write(Verbosity.Normal, LogLevel.Information, "Job was skipped");
                         break;
 
